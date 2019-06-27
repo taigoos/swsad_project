@@ -1,0 +1,74 @@
+<!--index.wxml-->
+<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">校区</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindCampusChange" value="{{campusIndex}}" range="{{campus}}">
+        <view class="weui-select weui-select_in-select-after">{{campus[campusIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-panel">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="任务名|发布人" value="{{inputVal}}" focus="{{inputShowed}}" bindconfirm="bindSearch" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+  </view>
+
+
+  <block wx:if="{{postList.length>0}}">
+
+    <navigator class="weui-media-box weui-media-box_text" wx:for="{{postList}}" wx:key="{{item.objectId}}" url="../postDetail/postDetail?objectId={{item.objectId}}&ownerId={{item.ownerId}}&taskName={{item.taskName}}&taskAuthor={{item.taskAuthor}}&taskPress={{item.taskPress}}&&taskPrice={{item.taskPrice}}&currentPrice={{item.currentPrice}}&condition={{item.condition}}&updatedAt={{item.updatedAt}}&campus={{item.campus}}&taskImg={{item.taskImg}}&isTexttask={{item.isTexttask}}&courseName={{item.courseName}}&postRemark={{postRemark}}">
+      <view class="weui-media-box__title weui-media-box__title_in-text">
+        {{item.taskName}}</view>
+
+      <view class="item_content">
+        <image style="width:125px; height:200px" src="{{item.taskImg}}" mode="aspectFit" />
+
+        <view class="item_content_left">
+
+          <view class="weui-media-box__desc">发布人：{{item.taskAuthor}}</view>
+          <view class="weui-media-box__desc">时限：{{item.condition}}</view>
+          <view class="weui-media-box__desc">押金：{{item.taskPrice}}元</view>
+          <view class="weui-media-box__desc">赏金：{{item.currentPrice}}元</view>
+
+        </view>
+      </view>
+
+      <view class="weui-media-box__info">
+        <view class="weui-media-box__info__meta weui-media-time">{{item.updatedAt}}</view>
+        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.ownerNickname}}</view>
+      </view>
+
+
+    </navigator>
+  </block>
+  <block wx:else>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">
+        暂无内容</view>
+      <view class="weui-media-box__desc"></view>
+
+    </view>
+  </block>
+</view>
+

@@ -1,0 +1,32 @@
+<!--pages/my/myPost/myPost.wxml-->
+<view class="weui-cells weui-cells_after-title">
+  <block wx:if="{{postList.length>0}}">
+
+    <view class="weui-media-box weui-media-box_text" wx:for="{{postList}}" wx:key="{{item.objectId}}">
+      <view class="weui-media-box__title weui-media-box__title_in-text">
+        {{item.taskName}}</view>
+      <view wx:if="{{item.isTexttask}}" class="weui-media-box__desc">目的地：{{item.courseName}}</view>
+      <view class="weui-media-box__desc">发布者：{{item.taskAuthor}}</view>
+      <view class="weui-media-box__desc">描述：{{item.taskPress}}</view>
+      <view class="weui-media-box__desc">时限：{{item.condition}}</view>
+      <view class="weui-media-box__desc">押金：{{item.taskPrice}}元</view>
+      <view class="weui-media-box__desc">赏金：{{item.currentPrice}}元</view>
+      <image style="width:125px; height:200px" src="{{item.taskImg}}" mode="aspectFit" />
+      <view class="weui-media-box__info">
+        <view class="weui-media-box__info__meta weui-media-time">{{item.updatedAt}}</view>
+        <view class="weui-media-box__info__meta weui-media-box__info__operate">
+          <icon type="cancel" size="16"></icon>
+          <text class="del" catchtap="deletePost" data-id="{{item.objectId}}">删除</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">
+        暂无发布</view>
+      <view class="weui-media-box__desc"></view>
+
+    </view>
+  </block>
+</view>
