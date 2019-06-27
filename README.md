@@ -8,7 +8,7 @@
     - [用户手册]()
   
 3. 所有源代码
-    + [闲钱快小程序源代码仓库]()
+    + [闲钱快小程序源代码仓库](https://github.com/taigoos/swsad_project/tree/master/Taigoos)
 4. 《软件需求规格说明书》（SRS）
     - [软件需求规格说明书](软件规格需求说明书.md)
 5. 《软件设计文档》 （SDS）
