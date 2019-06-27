@@ -5,7 +5,7 @@
 1. 安装包与《安装部署说明》
     + [安装部署说明](安装部署说明.md)
 2. 《用户手册》/《使用说明》
-    - [用户手册]()
+    - [用户手册](用户手册.md)
   
 3. 所有源代码
     + [闲钱快小程序源代码仓库](https://github.com/taigoos/swsad_project/tree/master/Taigoos)
