@@ -93,7 +93,7 @@
       <view class="weui-label">赏金</view>
     </view>
     <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="价格越低越容易售出哦" bindinput="bindCurrentPriceInput" type="number" value="{{currentPrice}}" />
+      <input class="weui-input" placeholder="元" bindinput="bindCurrentPriceInput" type="number" value="{{currentPrice}}" />
     </view>
   </view>
 

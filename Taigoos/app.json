@@ -10,7 +10,7 @@
     "pages/my/myUserFollower/myUserFollower",
     "pages/my/myPost/myPost",
     "pages/my/mySetting/mySetting",
-    "pages/my/contactUs/contactUs"
+    "pages/my/myQ/myQ"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -35,6 +35,12 @@
         "iconPath": "images/footer-icon-03.png",
         "selectedIconPath": "images/footer-icon-03-active.png",
         "text": "发布"
+      },
+      {
+        "pagePath": "pages/post_2/post_2",
+        "iconPath": "images/footer-icon-03.png",
+        "selectedIconPath": "images/footer-icon-03-active.png",
+        "text": "问卷"
       },
       {
         "pagePath": "pages/my/my",

@@ -1,4 +1,4 @@
-/* post.wxss */
+/* post_2.wxss */
 .title{
     display: flex;
     flex-direction: row;

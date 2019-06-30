@@ -20,8 +20,8 @@
     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>
 
-  <navigator url="contactUs/contactUs" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-    <view class="weui-cell__bd">交流反馈</view>
+  <navigator url="myQ/myQ" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">我的问卷</view>
     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>
 

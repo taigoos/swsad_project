@@ -6,7 +6,7 @@ var that
 Page({
   data: {
     campus: ["东校区", "南校区", "北校区", "珠海校区"],
-    campusIndex: 3,
+    campusIndex: 0,
     limit: 2,
     skip: 0,
     postList: []

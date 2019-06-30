@@ -1,0 +1,39 @@
+<!--myQ.wxml-->
+<view class="weui-cells weui-cells_after-title">
+  <block wx:if="{{postList.length>0}}">
+
+    <view class="weui-media-box weui-media-box_text" wx:for="{{postList}}" wx:key="{{item.objectId}}">
+      <view class="weui-media-box__title weui-media-box__title_in-text">
+        {{item.questionTitle}}</view>
+      <view class="weui-media-box__desc">问题1：{{item.question_1}}</view>
+      <view class="weui-media-box__desc">A：{{item.question_1_1}}</view>
+      <view class="weui-media-box__desc">B：{{item.question_1_2}}</view>
+      <view class="weui-media-box__desc">C：{{item.question_1_3}}</view>
+      <text>\n</text>
+      <view class="weui-media-box__desc">问题2：{{item.question_2}}</view>
+      <view class="weui-media-box__desc">A：{{item.question_2_1}}</view>
+      <view class="weui-media-box__desc">B：{{item.question_2_2}}</view>
+      <view class="weui-media-box__desc">C：{{item.question_2_3}}</view>
+      <text>\n</text>
+      <view class="weui-media-box__desc">问题3：{{item.question_3}}</view>
+      <view class="weui-media-box__desc">A：{{item.question_3_1}}</view>
+      <view class="weui-media-box__desc">B：{{item.question_3_2}}</view>
+      <view class="weui-media-box__desc">C：{{item.question_3_3}}</view>
+      <view class="weui-media-box__info">
+        <view class="weui-media-box__info__meta weui-media-time">{{item.updatedAt}}</view>
+        <view class="weui-media-box__info__meta weui-media-box__info__operate">
+          <icon type="cancel" size="16"></icon>
+          <text class="del" catchtap="deletePost" data-id="{{item.objectId}}">删除</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">
+        暂无发布</view>
+      <view class="weui-media-box__desc"></view>
+
+    </view>
+  </block>
+</view>

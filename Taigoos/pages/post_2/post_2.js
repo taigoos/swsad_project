@@ -1,4 +1,4 @@
-// post.js
+// post_2.js
 var Bmob = require('../../utils/bmob.js');
 var app = getApp()
 Page({
@@ -7,25 +7,21 @@ Page({
    */
   data: {
     ownerId: '',
-    ownerNickname: '',
-    ownerGender: 1,
-    ownerPic: '',
-    taskFound: false,
+    
+    questionTitle: '',
+    question_1: '',
+    question_2: '',
+    question_3: '',
+    question_1_1: '',
+    question_1_2: '',
+    question_1_3: '',
+    question_2_1: '',
+    question_2_2: '',
+    question_2_3: '',
+    question_3_1: '',
+    question_3_2: '',
+    question_3_3: '',
 
-    taskImg: '',
-    taskName: '',
-    taskAuthor: '',
-    taskPress: '',
-    taskPrice: '',
-
-    isTexttask: false,
-    courseName: '',
-    conditions: ["10分钟内","10-60分钟", "一天内", "一周内"],
-    conditionIndex: 0,
-    campus: ["东校区", "南校区", "北校区", "珠海校区"],
-    campusIndex: 0,
-    currentPrice: '',
-    postRemark: '',
     buttonLoading: false
   },
 
@@ -34,19 +30,10 @@ Page({
      */
   onLoad: function () {
     var that = this
-    app.getUserInfo(function (userInfo) {
-      that.setData({
-        ownerPic: userInfo.avatarUrl,
-        ownerNickname: userInfo.nickName,
-        ownerGender: userInfo.gender + ''
-      }),
-        console.log('ownerNickname:', that.data.ownerNickname)
-        console.log('ownerGender:', that.data.ownerGender)
-        console.log('ownerPic:', that.data.ownerPic)
-    }),
-      this.setData({
-        ownerId: Bmob.User.current().id
-      })
+
+    this.setData({
+      ownerId: Bmob.User.current().id
+    })
     console.log('ownerId:', this.data.ownerId)
   },
 
@@ -92,64 +79,75 @@ Page({
 
   },
 
-  bindTaskNameInput: function (e) {
+  bindquestionTitleInput: function (e) {
     this.setData({
-      taskName: e.detail.value
+      questionTitle: e.detail.value
     })
   },
-  bindTaskAuthorInput: function (e) {
+  bindquestion_1Input: function (e) {
     this.setData({
-      taskAuthor: e.detail.value
+      question_1: e.detail.value
     })
   },
-  bindTaskPressInput: function (e) {
+  bindquestion_2Input: function (e) {
     this.setData({
-      taskPress: e.detail.value
+      question_2: e.detail.value
     })
   },
-  bindTaskPriceInput: function (e) {
+  bindquestion_3Input: function (e) {
     this.setData({
-      taskPrice: e.detail.value
-    })
-  },
-
-  bindNeedCourse: function (e) {
-    this.setData({
-      isTexttask: e.detail.value
-    })
-    if (!this.data.isTexttask) {
-      this.setData({
-        courseName: ''
-      })
-    }
-  },
-  bindCourseInput: function (e) {
-    this.setData({
-      courseName: e.detail.value
+      question_3: e.detail.value
     })
   },
 
-  bindConditionChange: function (e) {
+
+  bindquestion_1_1Input: function (e) {
     this.setData({
-      conditionIndex: e.detail.value
+      question_1_1: e.detail.value
+    })
+  },
+  bindquestion_1_2Input: function (e) {
+    this.setData({
+      question_1_2: e.detail.value
+    })
+  },
+  bindquestion_1_3Input: function (e) {
+    this.setData({
+      question_1_3: e.detail.value
     })
   },
 
-  bindCampusChange: function (e) {
+
+  bindquestion_2_1Input: function (e) {
     this.setData({
-      campusIndex: e.detail.value
+      question_2_1: e.detail.value
+    })
+  },
+  bindquestion_2_2Input: function (e) {
+    this.setData({
+      question_2_2: e.detail.value
+    })
+  },
+  bindquestion_2_3Input: function (e) {
+    this.setData({
+      question_2_3: e.detail.value
     })
   },
 
-  bindCurrentPriceInput: function (e) {
+
+  bindquestion_3_1Input: function (e) {
     this.setData({
-      currentPrice: e.detail.value
+      question_3_1: e.detail.value
     })
   },
-
-  bindPostRemarkInput: function (e) {
+  bindquestion_3_2Input: function (e) {
     this.setData({
-      postRemark: e.detail.value
+      question_3_2: e.detail.value
+    })
+  },
+  bindquestion_3_3Input: function (e) {
+    this.setData({
+      question_3_3: e.detail.value
     })
   },
 
@@ -159,22 +157,22 @@ Page({
       buttonLoading: true
     })
 
-    var Post = Bmob.Object.extend("post");
+    var Post = Bmob.Object.extend("qCall");
     var post = new Post();
     post.set("ownerId", this.data.ownerId);
-    post.set("ownerNickname", this.data.ownerNickname);
-    post.set("ownerGender", this.data.ownerGender);
-    post.set("taskImg", this.data.taskImg);
-    post.set("taskName", this.data.taskName);
-    post.set("taskAuthor", this.data.taskAuthor);
-    post.set("taskPress", this.data.taskPress);
-    post.set("taskPrice", this.data.taskPrice);
-    post.set("isTexttask", this.data.isTexttask);
-    post.set("courseName", this.data.courseName);
-    post.set("condition", this.data.conditions[this.data.conditionIndex]);
-    post.set("campus", this.data.campus[this.data.campusIndex]);
-    post.set("currentPrice", parseInt(this.data.currentPrice));
-    post.set("taskRemark", this.data.taskRemark);
+    post.set("questionTitle", this.data.questionTitle);
+    post.set("question_1", this.data.question_1);
+    post.set("question_2", this.data.question_2);
+    post.set("question_3", this.data.question_3);
+    post.set("question_1_1", this.data.question_1_1);
+    post.set("question_1_2", this.data.question_1_2);
+    post.set("question_1_3", this.data.question_1_3);
+    post.set("question_2_1", this.data.question_2_1);
+    post.set("question_2_2", this.data.question_2_2);
+    post.set("question_2_3", this.data.question_2_3);
+    post.set("question_3_1", this.data.question_3_1);
+    post.set("question_3_2", this.data.question_3_2);
+    post.set("question_3_3", this.data.question_3_3);
     //添加数据，第一个入口参数是null
     post.save(null, {
       success: function (result) {
